@@ -1,0 +1,32 @@
+
+####Spark Submit job in cluster mode #########
+
+[spark path]/spark-submit \
+--master yarn  \
+--conf spark.ui.port=0 \
+[codepath]/etl_job.py \
+[inputpath]/* \
+outputpath
+
+
+Note: We case use below parameters in case we want to scale up the applications due to huge volume of data.
+--num-executors 
+-executor-memory 
+--executor-cores
+
+Example:
+
+a)inputpath is the hdfs path where the data is present.
+b)outputpath is the hdfs path where the data is copied once transformation is performed.
+
+/opt/spark3/bin/spark-submit \
+--master yarn  \
+--conf spark.ui.port=0 \
+ /home/debarati_ray_ms/spark_application/etl_job.py \
+"/user/debarati_ray_ms/random/*" \
+"/user/debarati_ray_ms/output"
+
+
+
+
+
